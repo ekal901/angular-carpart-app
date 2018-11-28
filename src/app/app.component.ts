@@ -15,4 +15,7 @@ export class AppComponent {
     'inStock': 5
   };
 
+  constructor() {
+    // console.log('AppComponent Constructor is called');
+  }
 }
