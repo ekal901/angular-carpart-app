@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CarpartsComponent } from './carparts/carparts.component';
 import {FormsModule} from '@angular/forms';
 import {CarpartsDataService} from './carparts/carparts-data.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {CarpartsDataService} from './carparts/carparts-data.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
