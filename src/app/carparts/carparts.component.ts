@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {CarPart} from './carpart';
 import {CarpartsDataService} from './carparts-data.service';
+import {catchError} from 'rxjs/operators';
+import {throwError} from 'rxjs';
 
 @Component({
   selector: 'app-carparts',
@@ -8,8 +10,8 @@ import {CarpartsDataService} from './carparts-data.service';
   styleUrls: ['./carparts.component.css']
 })
 export class CarpartsComponent implements OnInit {
+  title = 'Ultra Racing';
   carParts: CarPart[];
-
   constructor(private carpartsDataService: CarpartsDataService) {
     console.log('CarpartsComponent Constructor is called');
   }
@@ -17,7 +19,22 @@ export class CarpartsComponent implements OnInit {
   ngOnInit() {
     console.log('CarpartsComponent ngOnInit');
     // this.carParts = this.carpartsDataService.getCarParts();
-    this.carpartsDataService.getCarParts().subscribe(resData => this.carParts = resData['data']);
+
+    // Observable 방식으로 사용한 Http 통신 //Observable 의 pipe 사용
+    /*this.carpartsDataService.getCarParts()
+      .pipe(
+        catchError(err => {
+          console.log('Error 발생', err);
+          return throwError(err);
+        })
+      )
+      .subscribe(resData => this.carParts = resData['data'],
+        err => { alert(err.status);
+          console.log('HTTP Error occured', err); },
+            () => console.log('HTTP Request Completed'));*/
+    // Promise 객체의 then() mehtod 사용
+    this.carpartsDataService.getCarPartsPromise()
+      .then(resData => this.carParts = resData);
   }
 
   totalCarParts() {

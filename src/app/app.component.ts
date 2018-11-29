@@ -6,8 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Ultra Racing';
-
   carPart = {
     'id': 1,
     'name' : 'Super Tires',
