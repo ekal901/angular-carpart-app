@@ -1,7 +1,14 @@
 <div>
   <header class="container">
     <h1>Something About Race...</h1>
-    <p>Races are usually pretty awesome, schedule to race today</p>
+    <p myTextDecorator="overline">Races are usually pretty awesome, schedule to race today</p>
+    <h3>{{today | date:'fullDate'}}</h3>
   </header>
-  <h3>{{today | date:'fullDate'}}</h3>
+  <div>
+    <ul>
+      <li *ngFor="let num of numbers">
+        {{ num | ordinal }}
+      </li>
+    </ul>
+  </div>
 </div>

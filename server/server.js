@@ -2,6 +2,8 @@
 var http = require('http');
 var express = require('express');
 var bodyParser = require('body-parser');
+var cors = require('cors');
+/* app.use(cors()); */
 
 var items = {
     "data" : [
@@ -41,9 +43,13 @@ var items = {
 // 웹 서버를 생성합니다.
 var app = express();
 
-app.use(express.static('public'));
+app.use(express.static('public')); /* server/public 이라는 폴더 생성 */
+/* angular server stop 후 ng build 사용하여 배포할 파일을 만든다. */
+/* ng build 후에 dist 라는 폴더가 생성된다. */
+/* public 폴더에 dist 폴더 하위의 모든 것 복사 */
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+app.use(cors());
 
 
 app.all('/data.json', function (request, response) {

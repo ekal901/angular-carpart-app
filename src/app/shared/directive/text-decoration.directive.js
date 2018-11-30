@@ -13,7 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Created by vega on 2017-03-29.
  */
 var core_1 = require("@angular/core");
-var UnderlineDirective = (function () {
+var TextDecorationDirective = (function () {
     function UnderlineDirective(renderer, el) {
         this.renderer = renderer;
         this.el = el;
@@ -44,19 +44,19 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], UnderlineDirective.prototype, "onMouseEnter", null);
+], TextDecorationDirective.prototype, "onMouseEnter", null);
 __decorate([
     core_1.HostListener('mouseleave'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], UnderlineDirective.prototype, "onMouseLeave", null);
-UnderlineDirective = __decorate([
+], TextDecorationDirective.prototype, "onMouseLeave", null);
+TextDecorationDirective = __decorate([
     core_1.Directive({
         selector: '[myUnderline]'
     }),
     __metadata("design:paramtypes", [core_1.Renderer,
         core_1.ElementRef])
-], UnderlineDirective);
-exports.UnderlineDirective = UnderlineDirective;
-//# sourceMappingURL=underline.directive.js.map
+], TextDecorationDirective);
+exports.UnderlineDirective = TextDecorationDirective;
+//# sourceMappingURL=text-decoration.directive.js.mapjs.map

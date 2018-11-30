@@ -1,14 +1,18 @@
 import {Injectable} from '@angular/core';
 import {CARPARTS} from './mocks';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {promise} from 'selenium-webdriver';
 import Promise = promise.Promise;
 import {CarPart} from './carpart';
 
-@Injectable({
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+}
+
+@Injectable(/*{
   providedIn: 'root'
-})
+}*/)
 export class CarpartsDataService {
   constructor(private httpClient: HttpClient) {
     console.log('CarpartsDataService constructor called..');
@@ -26,5 +30,10 @@ export class CarpartsDataService {
       .toPromise()
       .then(res => res['data'])
       .catch(err => console.log('Error occured', err));
+  }
+
+  addCarPart(carPart: CarPart): Observable<CarPart> {
+    carPart.id = carPart.id; // number casting
+    return this.httpClient.post<CarPart>('http://127.0.0.1:52274/products', carPart) ;
   }
 }

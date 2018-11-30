@@ -1,15 +1,15 @@
 /**
  * Created by vega on 2017-03-29.
  */
-import { Directive, HostListener, Renderer, ElementRef } from '@angular/core';
+import {Directive, HostListener, ElementRef, Renderer2, Input} from '@angular/core';
 
 @Directive({
-    selector: '[myUnderline]'
+    selector: '[myTextDecorator]'
 })
-export class UnderlineDirective{
-
+export class TextDecorationDirective {
+    @Input('myTextDecorator') prop;
     constructor(
-        private renderer: Renderer,
+        private renderer: Renderer2,
         private el: ElementRef
     ){}
     // Event listeners for element hosting
@@ -22,13 +22,13 @@ export class UnderlineDirective{
         this.hover(false);
     }
     // Event method to be called on mouse enter and on mouse leave
-    hover(shouldUnderline: boolean){
-        if(shouldUnderline){
+    hover(shouldUnderline: boolean) {
+        if(shouldUnderline) {
             // Mouse enter
-            this.renderer.setElementStyle(this.el.nativeElement, 'text-decoration', 'underline');
+            this.renderer.setStyle(this.el.nativeElement, 'text-decoration', this.prop);
         } else {
             // Mouse leave
-            this.renderer.setElementStyle(this.el.nativeElement, 'text-decoration', 'none');
+            this.renderer.setStyle(this.el.nativeElement, 'text-decoration', 'none');
         }
     }
 }

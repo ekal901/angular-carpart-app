@@ -13,7 +13,7 @@ var core_1 = require("@angular/core");
 var ordinal_pipe_1 = require("./pipe/ordinal.pipe");
 var mydate_pipe_1 = require("./pipe/mydate.pipe");
 var hidden_directive_1 = require("./directive/hidden.directive");
-var underline_directive_1 = require("./directive/underline.directive");
+var underline_directive_1 = require("./directive/text-decoration.directive");
 var color_directive_1 = require("./directive/color.directive");
 var directive_component_1 = require("./component/directive.component");
 var pipe_component_1 = require("./component/pipe.component");
@@ -26,8 +26,8 @@ var SharedModule = (function () {
 SharedModule = __decorate([
     core_1.NgModule({
         imports: [common_1.CommonModule],
-        declarations: [directive_component_1.DirectiveComponent, pipe_component_1.PipeComponent, ordinal_pipe_1.OrdinalPipe, mydate_pipe_1.MyDatePipe, hidden_directive_1.HiddenDirective, underline_directive_1.UnderlineDirective, color_directive_1.ColorDirective],
-        exports: [directive_component_1.DirectiveComponent, pipe_component_1.PipeComponent, ordinal_pipe_1.OrdinalPipe, mydate_pipe_1.MyDatePipe, hidden_directive_1.HiddenDirective, underline_directive_1.UnderlineDirective, color_directive_1.ColorDirective]
+        declarations: [directive_component_1.DirectiveComponent, pipe_component_1.PipeComponent, ordinal_pipe_1.OrdinalPipe, mydate_pipe_1.MyDatePipe, hidden_directive_1.HiddenDirective, underline_directive_1.TextDecorationDirective, color_directive_1.ColorDirective],
+        exports: [directive_component_1.DirectiveComponent, pipe_component_1.PipeComponent, ordinal_pipe_1.OrdinalPipe, mydate_pipe_1.MyDatePipe, hidden_directive_1.HiddenDirective, underline_directive_1.TextDecorationDirective, color_directive_1.ColorDirective]
     })
 ], SharedModule);
 exports.SharedModule = SharedModule;
