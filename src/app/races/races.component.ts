@@ -11,6 +11,8 @@ import {throwError} from 'rxjs';
 })
 export class RacesComponent implements OnInit {
   races: Races[];
+  heading = 'Ultra Racing Schedule';
+  cash = 10000;
   constructor(private racesDataService: RacesDataService) {
     console.log('racesDataService Constructor is called');
   }

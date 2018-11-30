@@ -9,6 +9,7 @@ import {CarpartsDataService} from './carparts/carparts-data.service';
 import {HttpClientModule} from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
 import { RacesComponent } from './races/races.component';
+import {RacesDataService} from './races/races-data.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { RacesComponent } from './races/races.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [RacesDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
